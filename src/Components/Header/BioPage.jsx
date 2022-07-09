@@ -92,7 +92,7 @@ function BioPage() {
     
     var num = Math.floor(Math.random() * 7)
 
-        if(name == 'random'){
+        if(name == 'location'){
 
 
             axios.get(`http://localhost:8080/randomLocation/?id=${num}`).then((res)=>{
@@ -105,15 +105,67 @@ function BioPage() {
 
           axios.get(`http://localhost:8080/randomName/?id=${num}`).then((res)=>{
 
-        // console.log(res.data[0])
           setdata({...data,name:res.data[0].name, gender:res.data[0].gender})
         })
 
         }
 
         else if(name == 'school'){
-          
+
+          axios.get(`http://localhost:8080/randomSchool/?id=${num}`).then((res)=>{
+
+          setdata({...data,school:res.data[0].name})
+        })
+
+
         }
+        else if(name == 'major'){
+
+          axios.get(`http://localhost:8080/randomMajor/?id=${num}`).then((res)=>{
+
+          setdata({...data,major:res.data[0].name})
+        })
+
+
+        }
+        else if(name == 'major'){
+
+          axios.get(`http://localhost:8080/randomMajor/?id=${num}`).then((res)=>{
+
+          setdata({...data,major:res.data[0].name})
+        })
+
+
+        }
+        else if(name == 'occupation'){
+
+          axios.get(`http://localhost:8080/randomOccupation/?id=${num}`).then((res)=>{
+
+          setdata({...data,occupation:res.data[0].name})
+        })
+
+
+        }
+        else if(name == 'religion'){
+
+          axios.get(`http://localhost:8080/randomReligious/?id=${num}`).then((res)=>{
+
+          setdata({...data,religious:res.data[0].name})
+        })
+
+
+        }
+        else if(name == 'reason'){
+
+          axios.get(`http://localhost:8080/randomReason/?id=${num}`).then((res)=>{
+
+          setdata({...data,reason:res.data[0].name})
+        })
+
+
+        }
+        
+
 
     
 
@@ -176,7 +228,7 @@ function BioPage() {
                     ></input>
                   </span>
                   <span>
-                    <button className="random" disabled={location} name='random' onClick={getRandom}>Random location</button>
+                    <button className="random" disabled={location} name='location' onClick={getRandom}>Random location</button>
                   </span>
                 </span>
               </div>
@@ -216,7 +268,7 @@ function BioPage() {
                     ></input>
                   </span>
                   <span>
-                    <button className="random">Random Major</button>
+                    <button className="random" disabled={major} name='major' onClick={getRandom}>Random Major</button>
                   </span>
                 </span>
               </div>
@@ -236,7 +288,7 @@ function BioPage() {
                     ></input>
                   </span>
                   <span>
-                    <button className="random">Random Occu.</button>
+                    <button className="random" disabled={occupation} name='occupation' onClick={getRandom}>Random occupation</button>
                   </span>
                 </span>
               </div>
@@ -259,7 +311,7 @@ function BioPage() {
                     ></textarea>
                   </span>
                   <span>
-                    <button className="random">Random Religion</button>
+                    <button className="random" disabled={religion} name='religion' onClick={getRandom}>Random Religion</button>
                   </span>
                 </span>
               </div>
@@ -283,7 +335,7 @@ function BioPage() {
                     ></textarea>
                   </span>
                   <span>
-                    <button className="random">Random Reason</button>
+                    <button className="random" disabled={reason} name='reason' onClick={getRandom}>Random Reason</button>
                   </span>
                 </span>
               </div>

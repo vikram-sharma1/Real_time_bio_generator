@@ -43,6 +43,10 @@
     ],
     "randomLocation" : [
         {
+            "id" : 0,
+            "name" : "Delhi, India"
+        },
+        {
             "id" : 1,
             "name" : "Ogden, Utah"
         },
@@ -72,6 +76,10 @@
         }
     ],
     "randomSchool":[
+        {
+            "id":0,
+            "name":"FALTU College"
+        },
         {
             "id":1,
             "name":"BYU"
@@ -103,6 +111,10 @@
     ],
     "randomMajor" : [
         {
+            "id":0,
+            "name":"Developer"
+        },
+        {
             "id":1,
             "name":"Information Systems"
         },
@@ -132,6 +144,10 @@
         }
     ],
     "randomOccupation" : [
+        {
+            "id":0,
+            "name":"FrontEnd Developer"
+        },
         {
             "id":1,
             "name":"lab assistant"
@@ -163,6 +179,10 @@
     ],
     "randomReligious" : [
         {
+            "id":0,
+            "name":"Lutheran, and has a strong belief in Christ and the Bible"
+        },
+        {
             "id":1,
             "name":"in no particular religion, but is very spiritual and feels very close to God"
         },
@@ -192,6 +212,10 @@
         }
     ],
     "randomReason" : [
+        {
+            "id":0,
+            "name":"struggles to understand why bad things happen to good people"
+        },
         {
             "id":1,
             "name":"has been questioning whether God exists and would like a fresh perspective"
