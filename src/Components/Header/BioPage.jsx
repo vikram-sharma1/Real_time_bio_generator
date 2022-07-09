@@ -71,13 +71,13 @@ function BioPage() {
 
     if (name == "location") {
       axios
-        .get(`http://localhost:8080/randomLocation/?id=${num}`)
+        .get(`https://bio-db.herokuapp.com/randomLocation/?id=${num}`)
         .then((res) => {
           setdata({ ...data, location: res.data[0].name });
         });
     } 
     else if (name == "name") {
-      axios.get(`http://localhost:8080/randomName/?id=${num}`).then((res) => {
+      axios.get(`https://bio-db.herokuapp.com/randomName/?id=${num}`).then((res) => {
         setdata({
           ...data,
           name: res.data[0].name,
@@ -86,35 +86,35 @@ function BioPage() {
       });
     } 
     else if (name == "school") {
-      axios.get(`http://localhost:8080/randomSchool/?id=${num}`).then((res) => {
+      axios.get(`https://bio-db.herokuapp.com/randomSchool/?id=${num}`).then((res) => {
         setdata({ ...data, school: res.data[0].name });
       });
     } 
     else if (name == "major") {
-      axios.get(`http://localhost:8080/randomMajor/?id=${num}`).then((res) => {
+      axios.get(`https://bio-db.herokuapp.com/randomMajor/?id=${num}`).then((res) => {
         setdata({ ...data, major: res.data[0].name });
       });
     } 
     else if (name == "major") {
-      axios.get(`http://localhost:8080/randomMajor/?id=${num}`).then((res) => {
+      axios.get(`https://bio-db.herokuapp.com/randomMajor/?id=${num}`).then((res) => {
         setdata({ ...data, major: res.data[0].name });
       });
     } else if (name == "occupation") {
       axios
-        .get(`http://localhost:8080/randomOccupation/?id=${num}`)
+        .get(`https://bio-db.herokuapp.com/randomOccupation/?id=${num}`)
         .then((res) => {
           setdata({ ...data, occupation: res.data[0].name });
         });
     } 
     else if (name == "religion") {
       axios
-        .get(`http://localhost:8080/randomReligious/?id=${num}`)
+        .get(`https://bio-db.herokuapp.com/randomReligious/?id=${num}`)
         .then((res) => {
           setdata({ ...data, religious: res.data[0].name });
         });
     } 
     else if (name == "reason") {
-      axios.get(`http://localhost:8080/randomReason/?id=${num}`).then((res) => {
+      axios.get(`https://bio-db.herokuapp.com/randomReason/?id=${num}`).then((res) => {
         setdata({ ...data, reason: res.data[0].name });
       });
     }
