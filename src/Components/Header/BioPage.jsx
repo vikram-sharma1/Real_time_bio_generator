@@ -13,6 +13,16 @@ function BioPage() {
     reason: "",
   });
 
+
+  const [location, setlocation] = useState(!false)
+  const [school, setSchool] = useState(!false)
+  const [major, setMajor] = useState(!false)
+  const [occupation, setOccupation] = useState(!false)
+  const [religion, setReligion] = useState(!false)
+  const [reason, setReason] = useState(!false)
+
+
+
   const handleInput = (e) => {
     // console.log(e)
     const { id, value } = e.target;
@@ -30,6 +40,56 @@ function BioPage() {
     // console.log(data)
   };
 
+
+  const handleCheckbox=(e)=>{
+    const{id,value}=e.target;
+
+    console.log(id)
+    const checked=e.target.checked;
+    if(checked){
+        if(id == 'locationCheck'){
+          setlocation(false)
+        }
+        else if(id == 'schoolCheck'){
+          setSchool(false)
+        }
+        else if(id == 'majorCheck'){
+          setMajor(false)
+        }
+        else if(id == 'occupationCheck'){
+          setOccupation(false)
+        }
+        else if(id == 'religionCheck'){
+          setReligion(false)
+        }
+        else if(id == 'reasonCheck'){
+          setReason(false)
+        }
+
+    }
+    else if(!checked){
+      if(id == 'locationCheck'){
+        setlocation(true)
+      }
+      else if(id == 'schoolCheck'){
+        setSchool(true)
+      }
+      else if(id == 'majorCheck'){
+        setMajor(true)
+      }
+      else if(id == 'occupationCheck'){
+        setOccupation(true)
+      }
+      else if(id == 'religionCheck'){
+        setReligion(true)
+      }
+      else if(id == 'reasonCheck'){
+        setReason(true)
+      }
+    }
+};
+
+
   return (
 
     <>
@@ -46,7 +106,6 @@ function BioPage() {
               <div className="option">
                 <span>
                   <span>
-                    {" "}
                     Name
                     <input
                       type="text"
@@ -70,7 +129,7 @@ function BioPage() {
               <div className="option">
                 <span>
                   <span>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" id="locationCheck" onChange={handleCheckbox}></input>
                   </span>
                   <span>
                     Location
@@ -79,7 +138,11 @@ function BioPage() {
                       id="location"
                       value={data.location}
                       onInput={handleInput}
-                    ></input>{" "}
+                      disabled={location}
+
+
+
+                    ></input>
                   </span>
                   <span>
                     <button className="random">Random location</button>
@@ -89,7 +152,7 @@ function BioPage() {
               <div className="option">
                 <span>
                   <span>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" id="schoolCheck" onChange={handleCheckbox}></input>
                   </span>
                   <span>
                     School
@@ -98,17 +161,19 @@ function BioPage() {
                       id="school"
                       value={data.school}
                       onInput={handleInput}
-                    ></input>{" "}
+                      disabled={school}
+                    ></input>
                   </span>
                   <span>
                     <button className="random">Random School</button>
                   </span>
                 </span>
                 <span>
+                <br></br>
                   <span>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" id="majorCheck" onChange={handleCheckbox}></input>
                   </span>
-                  <br></br>
+                  
                   <span>
                     Major
                     <input
@@ -116,7 +181,8 @@ function BioPage() {
                       id="major"
                       value={data.major}
                       onInput={handleInput}
-                    ></input>{" "}
+                      disabled={major}
+                    ></input>
                   </span>
                   <span>
                     <button className="random">Random Major</button>
@@ -126,7 +192,7 @@ function BioPage() {
               <div className="option">
                 <span>
                   <span>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" id="occupationCheck" onChange={handleCheckbox}></input>
                   </span>
                   <span>
                     Occupation
@@ -135,7 +201,8 @@ function BioPage() {
                       id="occupation"
                       value={data.occupation}
                       onInput={handleInput}
-                    ></input>{" "}
+                      disabled={occupation}
+                    ></input>
                   </span>
                   <span>
                     <button className="random">Random Occu.</button>
@@ -145,7 +212,7 @@ function BioPage() {
               <div className="roption">
                 <span>
                   <span>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" id="religionCheck" onChange={handleCheckbox}></input>
                   </span>
                   <span>
                     Religious Background
@@ -157,7 +224,8 @@ function BioPage() {
                       id="religious"
                       value={data.religious}
                       onInput={handleInput}
-                    ></textarea>{" "}
+                      disabled={religion}
+                    ></textarea>
                   </span>
                   <span>
                     <button className="random">Random Religion</button>
@@ -167,7 +235,7 @@ function BioPage() {
               <div className="roption">
                 <span>
                   <span>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" id="reasonCheck" onChange={handleCheckbox}></input>
                   </span>
                   <span>
                     Reason for meeting with Missionaries
@@ -180,7 +248,8 @@ function BioPage() {
                       value={data.reason}
                       type="text"
                       onInput={handleInput}
-                    ></textarea>{" "}
+                      disabled={reason}
+                    ></textarea>
                   </span>
                   <span>
                     <button className="random">Random Reason</button>
