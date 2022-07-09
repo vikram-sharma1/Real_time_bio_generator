@@ -7,7 +7,7 @@ function App() {
   return (
     
     <>
-<BioPage></BioPage>
+      <BioPage/>
     </>
   )
 }
