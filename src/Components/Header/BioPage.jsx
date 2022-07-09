@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import "./BioPage.css";
 
@@ -24,27 +25,17 @@ function BioPage() {
 
 
   const handleInput = (e) => {
-    // console.log(e)
     const { id, value } = e.target;
-    // console.log(id, value)
-
     setdata({ ...data, [id]: value });
-
-    // console.log(data)
   };
 
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    // console.log(id, value)
-    setdata({ ...data, [id]: value });
-    // console.log(data)
-  };
+
 
 
   const handleCheckbox=(e)=>{
     const{id,value}=e.target;
 
-    console.log(id)
+    // console.log(id)
     const checked=e.target.checked;
     if(checked){
         if(id == 'locationCheck'){
@@ -90,6 +81,46 @@ function BioPage() {
 };
 
 
+
+
+  const getRandom = (e) => {
+
+    
+    // console.log(e)
+
+    const {name} = e.target
+    
+    var num = Math.floor(Math.random() * 7)
+
+        if(name == 'random'){
+
+
+            axios.get(`http://localhost:8080/randomLocation/?id=${num}`).then((res)=>{
+              setdata({...data,location:res.data[0].name})
+        
+            })
+
+        }
+        else if(name == 'name'){
+
+          axios.get(`http://localhost:8080/randomName/?id=${num}`).then((res)=>{
+
+        // console.log(res.data[0])
+          setdata({...data,name:res.data[0].name, gender:res.data[0].gender})
+        })
+
+        }
+
+        else if(name == 'school'){
+          
+        }
+
+    
+
+
+  }
+
+
   return (
 
     <>
@@ -116,13 +147,13 @@ function BioPage() {
                   </span>
                   <span>
                     Gender
-                    <select id="gender" onChange={handleChange}>
+                    <select id="gender" onChange={handleInput}>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                     </select>
                   </span>
                   <span>
-                    <button className="random">Random Name</button>
+                    <button className="random" name="name" onClick={getRandom}>Random Name</button>
                   </span>
                 </span>
               </div>
@@ -145,7 +176,7 @@ function BioPage() {
                     ></input>
                   </span>
                   <span>
-                    <button className="random">Random location</button>
+                    <button className="random" disabled={location} name='random' onClick={getRandom}>Random location</button>
                   </span>
                 </span>
               </div>
@@ -165,7 +196,7 @@ function BioPage() {
                     ></input>
                   </span>
                   <span>
-                    <button className="random">Random School</button>
+                    <button className="random" disabled={school} name='school' onClick={getRandom}>Random School</button>
                   </span>
                 </span>
                 <span>
