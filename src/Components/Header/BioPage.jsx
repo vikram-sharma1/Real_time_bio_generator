@@ -288,7 +288,7 @@ function BioPage() {
                     ></input>
                   </span>
                   <span>
-                    <button className="random" disabled={occupation} name='occupation' onClick={getRandom}>Random occupation</button>
+                    <button className="random" disabled={occupation} name='occupation' onClick={getRandom}>Random occu.</button>
                   </span>
                 </span>
               </div>
