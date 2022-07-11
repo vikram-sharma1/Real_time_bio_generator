@@ -21,6 +21,8 @@ function BioPage() {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
 
+  const [file, setFile] = useState()
+
   
 
   const [location, setlocation] = useState(!false);
@@ -29,6 +31,8 @@ function BioPage() {
   const [occupation, setOccupation] = useState(!false);
   const [religion, setReligion] = useState(!false);
   const [reason, setReason] = useState(!false);
+  const [image, setImage] = useState(!false);
+  const [pic, setPic] = useState(true)
 
   const handleInput = (e) => {
     const { id, value } = e.target;
@@ -54,6 +58,9 @@ function BioPage() {
       } else if (id == "reasonCheck") {
         setReason(false);
       }
+       else if (id == "imageCheck") {
+        setImage(false);
+      }
     } else if (!checked) {
       if (id == "locationCheck") {
         setlocation(true);
@@ -67,6 +74,9 @@ function BioPage() {
         setReligion(true);
       } else if (id == "reasonCheck") {
         setReason(true);
+      }
+       else if (id == "imageCheck") {
+        setImage(true);
       }
     }
   };
@@ -167,6 +177,17 @@ function BioPage() {
   }, []);
 
 
+  const saveImage = (e) => {
+  
+      setFile(URL.createObjectURL(e.target.files[0]));
+      setPic(false)
+
+      // console.log(e)
+
+  }
+  // console.log(file)
+ 
+
   // console.log(output)
   
   
@@ -197,9 +218,13 @@ function BioPage() {
                 <span>
                   Gender
                   <select id="gender" onChange={handleInput}>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+
+                    {data.gender == 'male'} ?  (<option value="male">Male</option>) : (<option value="female">Female</option>) 
+                     
+
                   </select>
+
+                        {/* <Select options={data.gender} /> */}
                 </span>
                 <span>
                   <button className="random" name="name" onClick={getRandom}>
@@ -401,19 +426,48 @@ function BioPage() {
                 </span>
               </span>
             </div>
+            {/* image upload */}
+            <div className="optionfile">
+              <span>
+                <span>
+                  <input
+                    type="checkbox"
+                    id="imageCheck"
+                    onChange={handleCheckbox}
+                  ></input>
+                </span>
+                <span>
+                  Upload File
+                  <input type="file" onChange={saveImage} disabled={image}/>
+                </span>
+                {/* <span>
+                  <button
+                    className="random"
+                    disabled={reason}
+                    name="reason"
+                    onClick={getRandom}
+                  >
+                    Random Reason
+                  </button>
+                </span> */}
+              </span>
+            </div>
+
           </div>
         </div>
 
         <div>
           <h1 className="result">Result</h1>
 
+          <img src={file} alt="" className="imgdisplay" style={{display:(pic) ? 'none' : 'block'}}/>
+
           <div className="resultBox">
             <p className="dataShow" id="finalResult" >
-              {data.name} is from {data.location}.{" "}
-              {data.gender == "male" ? "He" : "She"} is studying {data.major} at{" "}
+              {data.name} is from {data.location}.
+              {data.gender == "male" ? "He" : "She"} is studying {data.major} at
               {data.school} . {data.gender == "male" ? "He" : "She"} currently
-              works as a {data.occupation}.{" "}
-              {data.gender == "male" ? "He" : "She"} was raised {data.religious}{" "}
+              works as a {data.occupation}.
+              {data.gender == "male" ? "He" : "She"} was raised {data.religious}
               . {data.gender == "male" ? "He" : "She"} {data.reason} .
             </p>
           </div>

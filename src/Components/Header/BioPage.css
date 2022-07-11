@@ -7,7 +7,7 @@
 .middle{
     margin-top: 0px;
     background-color: rgb(228,238,233);
-    height: 1100px;
+    height: 1150px;
 }
 
 .options{
@@ -77,4 +77,24 @@
     margin: auto;
     margin-top: 50px;
 
+}
+
+.imgdisplay{
+    width: 40%;
+    height: 25%;
+    border-radius: 50%;
+    margin-left: 28%;
+    margin-top: 2%;
+}
+
+.optionfile{
+    margin-top: 10px;
+    margin-left: 250px;
+    width: 500px;
+    height: 15px;
+    background-color:rgb(188,198,192);
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 25px;
 }
